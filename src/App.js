@@ -1,14 +1,14 @@
 import React from 'react';
 import './App.css';
 
-function ProjectBlock({ title, subtitle, description, team = [], diagrams = [] }) {
+function ProjectBlock({ title, subtitle, description, team = [], clinicalMentors = [], diagrams = [] }) {
   const isImage = (url) => /\.(png|jpe?g|gif|svg)$/i.test(url);
 
   return (
     <details className="group bg-gray-50 rounded-xl p-4 border border-gray-100">
       <summary
         className="flex items-center justify-between cursor-pointer list-none text-lg font-semibold"
-        style={{ color: '#000' }}
+        style={{ color: '#8C1D40' }}
       >
         <div>
           <div>{title}</div>
@@ -20,7 +20,7 @@ function ProjectBlock({ title, subtitle, description, team = [], diagrams = [] }
       <div className="mt-3 text-gray-700 leading-relaxed space-y-4">
         {description && <div>{description}</div>}
 
-        {/* Team members (display only) */}
+        {/* Team members */}
         <div>
           <h4 className="font-semibold mb-2">Team members</h4>
           <ul className="list-disc list-inside text-gray-700 mb-2">
@@ -32,31 +32,47 @@ function ProjectBlock({ title, subtitle, description, team = [], diagrams = [] }
           </ul>
         </div>
 
-        {/* 3D model section removed */}
+        {/* Clinical mentors (new) */}
+        {clinicalMentors && clinicalMentors.length > 0 && (
+          <div>
+            <h4 className="font-semibold mb-2">Clinical mentors</h4>
+            <ul className="list-disc list-inside text-gray-700 mb-2">
+              {clinicalMentors.map((m, i) => (
+                <li key={i}>{m}</li>
+              ))}
+            </ul>
+          </div>
+        )}
 
-        {/* Diagrams & images (display only) */}
+        {/* Diagrams */}
         <div>
-          <h4 className="font-semibold mb-2">Diagrams & images</h4>
-          <div className="flex flex-wrap gap-3">
-            {diagrams.length === 0 && <div className="text-sm text-gray-500">No diagrams uploaded</div>}
-            {(() => {
-              const isSmart = title && title.includes('Smart Composter');
-              return diagrams.map((u, i) => (
-                <div key={i} className={isImage(u) ? (isSmart ? 'w-56' : 'w-28') : ''}>
-                  {isImage(u) ? (
-                    <img
-                      src={u}
-                      alt={`diagram-${i}`}
-                      className={isSmart ? 'w-full h-40 object-cover rounded' : 'w-full h-20 object-cover rounded'}
-                    />
-                  ) : (
-                    <a href={u} target="_blank" rel="noreferrer" className="text-sm underline" style={{ color: '#000' }}>
-                      {u.split("/").pop().replace(/\.[^/.]+$/, "")}
-                    </a>
-                  )}
-                </div>
-              ));
-            })()}
+          <h4 className="font-semibold mb-2">Diagrams, images, and PDF hyperlinks</h4>
+          <div className="flex flex-wrap gap-4">
+            {diagrams.length === 0 && (
+              <div className="text-sm text-gray-500">No diagrams uploaded</div>
+            )}
+
+            {diagrams.map((u, i) => (
+              <div key={i} className="w-1/2">
+                {isImage(u) ? (
+                  <img
+                    src={u}
+                    alt={`diagram-${i}`}
+                    className="w-full h-auto rounded shadow"
+                  />
+                ) : (
+                  <a
+                    href={u}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-sm underline"
+                    style={{ color: '#8C1D40' }}
+                  >
+                    {u.split('/').pop().replace(/\.[^/.]+$/, '')}
+                  </a>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -67,52 +83,81 @@ function ProjectBlock({ title, subtitle, description, team = [], diagrams = [] }
 export default function App() {
   const projects = [
     {
-      title: 'Tesla Valve Integrated Catheter System',
-      subtitle: 'Design Engineer',
+      title: 'Current Capstone Project: Under NDA',
+      subtitle: 'Design and Manufacturing Engineer',
       description:
-        'A novel design aimed at reducing CAUTIs through passive, one-way fluid control inspired by biomimetic flow systems.',
-      team: ['Colton Davis', 'Nathan Amyot', 'Cohen Jefferies', 'Joseph Rodriguez', 'Colin Stafford'],
-      diagrams: [],
-    },
-    {
-      title: 'Smart Pill Dispenser',
-      subtitle: 'Design Engineer',
-      description:
-        'Project using Arduino for data acquisition, device control, telemetry, sensor integration and low-power design.',
-      team: ['Colton Davis', 'Tyler Labrecque', 'Eric Shoenling', 'Hannah Yang' ],
-      diagrams: [],
-    },
-    {
-      title: 'Smart Composter',
-      subtitle: 'Design Engineer',
-      description:
-        'Automated sensing system that reads temperature, humidity, and compost health and emails customers recommendations biweekly.',
-      team: ['Colton Davis','Nathan Amyot', 'Denise Hill', 'Cohen Jefferies', 'Genevieve Lexa', 'Patrick Ohara', 'Emma Tapia', 'Heather Taylor'],
-      diagrams: ['Website-Files/SmartComposter/Composter_Design.png'],
-    },
-    {
-      title: 'Pulse oximeter',
-      subtitle: 'Field Engineer',
-      description:
-        'Design and prototyping of pulse oximetry hardware/software: optical sensor selection, timing, signal conditioning, SpO2 algorithm prototyping, and UI.',
-      team: ['Colton Davis', 'Tyler Labrecque'],
-      diagrams: ['/Website-Files/Pulse-Oximeter/Pulse_Oximeter_Theoretical_Design.pdf'],
-    },
-    {
-      title: 'MyoTens — Muscle Atrophy Prevention',
-      subtitle: 'Engineer',
-      description:
-        'Using analog front-end and digital processing. I worked with a team to create a muscle stimulation device that sends small pulses through muscle surrounding injured bones to prevent atrophy.',
-      team: ['Colton Davis', 'Anne Harrison','Tyler Labrecque', 'Zaki Amish'],
-      diagrams: ['/website-files/MyoTens/Theoretical_Design_Presentation.pdf'], // e.g. ['/images/myotens-diagram.png']
+        'Current plans are under NDA. I am working on embedded system design with ESP32 and piezoresistive sensor integration, data acquisition, and wireless communication. Focusing on low-power design, real-time processing, and ISO standard equipment.',
+      team: [
+        'Colton Davis',
+        'Nathan Amyot',
+        'Cohen Jefferies',
+        'Joseph Rodriguez',
+        'Colin Stafford'
+      ],
+
+      clinicalMentors: [
+        'Creighton School of Medicine',
+        'Nidhi Ramesh',
+        'Dr. Gaby Iskander'
+      ],
+      diagrams: []
     },
     {
       title: 'Mouth-controlled PC mouse',
       subtitle: 'Engineer',
       description:
-        'Assistive technology translating oral movements into cursor control and clicks.',
+        'Designed an embedded assistive-tech device converting oral gestures into mouse inputs. Developed custom sensor interface circuitry for pressure and motion detection, displayed waveform charts and data for real-time signal analysis, and implemented filtering to ensure stable cursor control. Focused on low-latency processing, device ergonomics, and effective communication. The software was created in LabVIEW',
       team: ['Colton Davis', 'Tyler Labrecque'],
-      diagrams: [],
+      diagrams: ['Website-Files/PCMouse/Design_History.pdf.pdf','Website-Files/PCMouse/LabView.png'],
+    },
+    {
+      title: 'MyoTens — Muscle Atrophy Prevention',
+      subtitle: 'Engineer',
+      description:
+        'Developed a neuromuscular stimulation system integrating an ESP 32 controlled Tens Unit to integrate, safety regulated pulse generation, and digital waveform analysis. Designed a circuit for controlled current delivery. Designed filtering, feedback sensing, and firmware to produce safe, precise stimulation.',
+      team: ['Colton Davis', 'Anne Harrison', 'Tyler Labrecque', 'Zaki Amish'],
+      diagrams: ['/website-files/MyoTens/Theoretical.png', 'Website-Files/MyoTens/Code1.png', 'Website-Files/MyoTens/CircuitTest.png'],
+    },
+    {
+      title: 'Tesla Valve Integrated Catheter System',
+      subtitle: 'Design Engineer',
+      description:
+        'Novel catheter device integrating passive Tesla valve flow geometry with embedded sensing concepts for future development. Worked on early electrical subsystem architecture, including pressure/flow sensor selection, low power data acquisition, and integration pathways for microcontroller based monitoring to support CAUTI-reduction strategies.',
+      team: ['Colton Davis', 'Nathan Amyot', 'Cohen Jefferies', 'Joseph Rodriguez', 'Colin Stafford'],
+      diagrams: ['Website-Files/Tesla Valve Catheter/Team Tesla Valve Presentation.pdf','Website-Files/Tesla Valve Catheter/Fluid Dynamics.png'],
+    },
+    {
+      title: 'Smart Pill Dispenser',
+      subtitle: 'Design Engineer',
+      description:
+        'Embedded system built with Arduino for automated medication dispensing. Responsible for electrical design, sensor integration (IR/optical confirmation), motor/servo control, and low power firmware. I implemented real-time event driven logic.',
+      team: ['Colton Davis', 'Tyler Labrecque', 'Eric Shoenling', 'Hannah Yang'],
+      diagrams: ['Website-Files/Smart Pills/CAD.png', 'Website-Files/Smart Pills/Circuitry.png'],
+    },
+    {
+      title: 'Smart Composter',
+      subtitle: 'Design Engineer',
+      description:
+        'I designed a compost monitoring system using ESP32 for wireless telemetry and multi-sensor data acquisition (temperature, humidity). Designed firmware for periodic sampling, environmental trend analysis, and automated email reporting. Integrated low-power modes, ADC calibration, and robust enclosure-level electrical layout for long-term outdoor deployment.',
+      team: [
+        'Colton Davis',
+        'Nathan Amyot',
+        'Denise Hill',
+        'Cohen Jefferies',
+        'Genevieve Lexa',
+        'Patrick Ohara',
+        'Emma Tapia',
+        'Heather Taylor',
+      ],
+      diagrams: ['Website-Files/SmartComposter/Code.pdf','Website-Files/SmartComposter/Composter_Design.png', 'Website-Files/SmartComposter/TinkerCAD.png','Website-Files/SmartComposter/Team Picture.png'],
+    },
+    {
+      title: 'Pulse oximeter',
+      subtitle: 'Field Engineer',
+      description:
+        'Custom pulse oximetry device involving stretch resistor "sensing" using a voltage divider and the output voltage of the stretch sensor, along with a high gain analog front end design. Programmed LabVIEW block diagram and front panel consisting of digital filtering, peak detection, and a simple display/UI.',
+      team: ['Colton Davis', 'Tyler Labrecque'],
+      diagrams: ['/Website-Files/Pulse-Oximeter/Pulse Oximeter.pdf', 'Website-Files/Pulse-Oximeter/BlockDiagram.png'],
     },
   ];
 
@@ -120,7 +165,7 @@ export default function App() {
     <div className="min-h-screen bg-gradient-to-b from-gray-100 to-gray-200 flex flex-col items-center text-gray-800 font-sans px-4">
       <header className="text-center mt-12 mb-12 w-full max-w-3xl">
         <h1 className="text-5xl font-extrabold mb-2 tracking-tight">
-          <span style={{ color: '#000' }}>Colton Davis</span>
+          <span style={{ color: '#000000ff' }}>Colton Davis</span>
         </h1>
         <h2 className="text-2xl font-semibold text-gray-600">ASU Engineering Senior</h2>
       </header>
@@ -128,7 +173,7 @@ export default function App() {
       <main className="w-full max-w-3xl px-6 flex flex-col items-center gap-8">
         <section className="text-center">
           <p className="text-lg leading-relaxed text-gray-900">
-            Here is my portfolio created by me entirely with JavaScript!
+            Here is my portfolio that I created entirely with JavaScript!
           </p>
         </section>
 
@@ -138,13 +183,14 @@ export default function App() {
           <div className="space-y-4 text-left">
             {projects.map((p, i) => (
               <ProjectBlock
-                  key={i}
-                  title={p.title}
-                  subtitle={p.subtitle}
-                  description={p.description}
-                  team={p.team}
-                  diagrams={p.diagrams}
-                />
+                key={i}
+                title={p.title}
+                subtitle={p.subtitle}
+                description={p.description}
+                team={p.team}
+                clinicalMentors={p.clinicalMentors || []}
+                diagrams={p.diagrams}
+              />
             ))}
           </div>
         </section>
@@ -154,19 +200,21 @@ export default function App() {
           <p className="text-gray-700 text-lg">
             Interested in collaboration or learning more?
             <br />
-            <a href="mailto:jcoltondavis@gmail.com" className="font-semibold hover:underline" style={{ color: '#000' }}>
+            <a href="mailto:jcoltondavis@gmail.com" className="font-semibold hover:underline" style={{ color: '#8C1D40' }}>
               jcoltondavis@gmail.com
             </a>
             <br />
             Call or text @{' '}
-            <a href="tel:928-243-4069" className="font-semibold hover:underline" style={{ color: '#000' }}>
+            <a href="tel:928-243-4069" className="font-semibold hover:underline" style={{ color: '#8C1D40' }}>
               928-243-4069
             </a>
           </p>
         </section>
       </main>
 
-      <footer className="mt-12 mb-8 text-sm text-gray-500 text-center">© {new Date().getFullYear()} Colton Davis — All Rights Reserved.</footer>
+      <footer className="mt-12 mb-8 text-sm text-gray-500 text-center">
+        © {new Date().getFullYear()} Colton Davis — All Rights Reserved.
+      </footer>
     </div>
   );
 }
