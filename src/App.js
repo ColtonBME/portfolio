@@ -108,7 +108,7 @@ export default function App() {
       description:
         'Designed an embedded assistive-tech device converting oral gestures into mouse inputs. Developed custom sensor interface circuitry for pressure and motion detection, displayed waveform charts and data for real-time signal analysis, and implemented filtering to ensure stable cursor control. Focused on low-latency processing, device ergonomics, and effective communication. The software was created in LabVIEW',
       team: ['Colton Davis', 'Tyler Labrecque'],
-      diagrams: ['Website-Files/PCMouse/Design_History.pdf.pdf','Website-Files/PCMouse/LabView.png'],
+      diagrams: ['website-Files/pcmouse/designhistory.pdf','website-Files/pcmouse/labview.png'],
     },
     {
       title: 'MyoTens — Muscle Atrophy Prevention',
@@ -116,7 +116,7 @@ export default function App() {
       description:
         'Developed a neuromuscular stimulation system integrating an ESP 32 controlled Tens Unit to integrate, safety regulated pulse generation, and digital waveform analysis. Designed a circuit for controlled current delivery. Designed filtering, feedback sensing, and firmware to produce safe, precise stimulation.',
       team: ['Colton Davis', 'Anne Harrison', 'Tyler Labrecque', 'Zaki Amish'],
-      diagrams: ['/website-files/MyoTens/Theoretical.png', 'Website-Files/MyoTens/Code1.png', 'Website-Files/MyoTens/CircuitTest.png'],
+      diagrams: ['/website-files/myotens/theory.png', 'website-files/myotens/code.png', 'website-files/myotens/circuit.png'],
     },
     {
       title: 'Tesla Valve Integrated Catheter System',
@@ -124,7 +124,7 @@ export default function App() {
       description:
         'Novel catheter device integrating passive Tesla valve flow geometry with embedded sensing concepts for future development. Worked on early electrical subsystem architecture, including pressure/flow sensor selection, low power data acquisition, and integration pathways for microcontroller based monitoring to support CAUTI-reduction strategies.',
       team: ['Colton Davis', 'Nathan Amyot', 'Cohen Jefferies', 'Joseph Rodriguez', 'Colin Stafford'],
-      diagrams: ['Website-Files/Tesla Valve Catheter/Team Tesla Valve Presentation.pdf','Website-Files/Tesla Valve Catheter/Fluid Dynamics.png'],
+      diagrams: ['website-files/teslavalve/presentation.pdf','website-files/teslavalve/tesla.png'],
     },
     {
       title: 'Smart Pill Dispenser',
@@ -132,7 +132,7 @@ export default function App() {
       description:
         'Embedded system built with Arduino for automated medication dispensing. Responsible for electrical design, sensor integration (IR/optical confirmation), motor/servo control, and low power firmware. I implemented real-time event driven logic.',
       team: ['Colton Davis', 'Tyler Labrecque', 'Eric Shoenling', 'Hannah Yang'],
-      diagrams: ['Website-Files/Smart Pills/CAD.png', 'Website-Files/Smart Pills/Circuitry.png'],
+      diagrams: ['website-files/smart-pills/threed.png', 'website-files/smart-pills/circuit.png'],
     },
     {
       title: 'Smart Composter',
@@ -149,7 +149,7 @@ export default function App() {
         'Emma Tapia',
         'Heather Taylor',
       ],
-      diagrams: ['Website-Files/SmartComposter/Code.pdf','Website-Files/SmartComposter/Composter_Design.png', 'Website-Files/SmartComposter/TinkerCAD.png','Website-Files/SmartComposter/Team Picture.png'],
+      diagrams: ['website-files/smartcomposter/codecombined.pdf','website-files/smartcomposter/composter.png', 'website-files/smartcomposter/tinker.png','website-files/smartcomposter/team.png'],
     },
     {
       title: 'Pulse oximeter',
@@ -157,7 +157,7 @@ export default function App() {
       description:
         'Custom pulse oximetry device involving stretch resistor "sensing" using a voltage divider and the output voltage of the stretch sensor, along with a high gain analog front end design. Programmed LabVIEW block diagram and front panel consisting of digital filtering, peak detection, and a simple display/UI.',
       team: ['Colton Davis', 'Tyler Labrecque'],
-      diagrams: ['/Website-Files/Pulse-Oximeter/Pulse Oximeter.pdf', 'Website-Files/Pulse-Oximeter/BlockDiagram.png'],
+      diagrams: ['website-files/pulse-oximeter/pulseox.pdf', 'website-files/pulse-oximeter/blockdiagram.png'],
     },
   ];
 
