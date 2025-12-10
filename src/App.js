@@ -108,7 +108,7 @@ export default function App() {
       description:
         'Designed an embedded assistive-tech device converting oral gestures into mouse inputs. Developed custom sensor interface circuitry for pressure and motion detection, displayed waveform charts and data for real-time signal analysis, and implemented filtering to ensure stable cursor control. Focused on low-latency processing, device ergonomics, and effective communication. The software was created in LabVIEW',
       team: ['Colton Davis', 'Tyler Labrecque'],
-      diagrams: ['website-Files/pcmouse/designhistory.pdf','website-Files/pcmouse/labview.png'],
+      diagrams: ['website-files/pcmouse/designhistory.pdf','website-files/pcmouse/labview.png'],
     },
     {
       title: 'MyoTens — Muscle Atrophy Prevention',
