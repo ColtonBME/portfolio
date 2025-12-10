@@ -211,11 +211,14 @@ export default function App() {
         <section className="bg-white p-8 rounded-3xl shadow-lg w-full text-center">
           <h3 className="text-3xl font-bold mb-4 text-gray-800 border-b border-gray-200 pb-3">📫 Contact Info</h3>
           <p className="text-gray-700 text-lg">
-            <a href="mailto:jcoltondavis@gmail.com" className="font-semibold hover:underline text-black">
+        Interested in collaboration or learning more?
+            <br />
+            <a href="mailto:jcoltondavis@gmail.com" className="font-semibold hover:underline" style={{ color: '#8C1D40' }}>
               jcoltondavis@gmail.com
             </a>
             <br />
-            <a href="tel:928-243-4069" className="font-semibold hover:underline text-black">
+            Call or text @{' '}
+            <a href="tel:928-243-4069" className="font-semibold hover:underline" style={{ color: '#8C1D40' }}>
               928-243-4069
             </a>
           </p>
