@@ -8,7 +8,7 @@ function ProjectBlock({ title, subtitle, description, team = [], diagrams = [] }
     <details className="group bg-gray-50 rounded-xl p-4 border border-gray-100">
       <summary
         className="flex items-center justify-between cursor-pointer list-none text-lg font-semibold"
-        style={{ color: '#8C1D40' }}
+        style={{ color: '#000' }}
       >
         <div>
           <div>{title}</div>
@@ -32,6 +32,8 @@ function ProjectBlock({ title, subtitle, description, team = [], diagrams = [] }
           </ul>
         </div>
 
+        {/* 3D model section removed */}
+
         {/* Diagrams & images (display only) */}
         <div>
           <h4 className="font-semibold mb-2">Diagrams & images</h4>
@@ -48,7 +50,7 @@ function ProjectBlock({ title, subtitle, description, team = [], diagrams = [] }
                       className={isSmart ? 'w-full h-40 object-cover rounded' : 'w-full h-20 object-cover rounded'}
                     />
                   ) : (
-                    <a href={u} target="_blank" rel="noreferrer" className="text-sm underline" style={{ color: '#8C1D40' }}>
+                    <a href={u} target="_blank" rel="noreferrer" className="text-sm underline" style={{ color: '#000' }}>
                       {u.split("/").pop().replace(/\.[^/.]+$/, "")}
                     </a>
                   )}
@@ -64,56 +66,53 @@ function ProjectBlock({ title, subtitle, description, team = [], diagrams = [] }
 
 export default function App() {
   const projects = [
-    // Top-priority projects moved first
-    {
-      title: 'Mouth-controlled PC mouse',
-      subtitle: 'Engineer',
-      description:
-        'Assistive human-computer interface using pressure and motion sensors integrated with a microcontroller to translate oral gestures into cursor movement and click events. Contributions include sensor calibration, analog signal conditioning, microcontroller firmware, and USB-HID communication for real-time control. This project software was created and tested in LabVIEW.',
-      team: ['Colton Davis', 'Tyler Labrecque'],
-      diagrams: [],
-    },
-    {
-      title: 'MyoTens — Muscle Atrophy Prevention',
-      subtitle: 'Engineer',
-      description:
-        'Biomedical stimulation system combining analog front-end circuitry with embedded digital control. Designed and tuned a multi-stage signal chain for muscle activation, including current-controlled drivers, waveform generation, and safety interlocks. Implemented microcontroller-based timing routines and pulse-width control algorithms for targeted neuromuscular stimulation.',
-      team: ['Colton Davis', 'Anne Harrison', 'Tyler Labrecque', 'Zaki Amish'],
-      diagrams: ['/website-files/MyoTens/Theoretical_Design_Presentation.pdf'],
-    },
-
-    // Remaining projects
     {
       title: 'Tesla Valve Integrated Catheter System',
       subtitle: 'Design Engineer',
       description:
-        'Novel catheter platform integrating passive Tesla valve flow geometry with embedded sensing concepts for future development. Worked on early electrical subsystem architecture, including pressure/flow sensor selection, low power data acquisition planning, and integration pathways for ESP 32 based monitoring to support CAUTI-reduction strategies.',
+        'A novel design aimed at reducing CAUTIs through passive, one-way fluid control inspired by biomimetic flow systems.',
       team: ['Colton Davis', 'Nathan Amyot', 'Cohen Jefferies', 'Joseph Rodriguez', 'Colin Stafford'],
       diagrams: [],
     },
     {
-      title: 'Arduino Uno Automated Pill Dispenser',
+      title: 'Smart Pill Dispenser',
       subtitle: 'Design Engineer',
       description:
-        'Embedded system built on Arduino architecture for automated medication dispensing. Responsible for electrical design, sensor integration (IR/optical confirmation), motor/servo control, and low power firmware. Implemented event driven logic.',
-      team: ['Colton Davis', 'Tyler Labrecque', 'Eric Shoenling', 'Hannah Yang'],
+        'Project using Arduino for data acquisition, device control, telemetry, sensor integration and low-power design.',
+      team: ['Colton Davis', 'Tyler Labrecque', 'Eric Shoenling', 'Hannah Yang' ],
       diagrams: [],
     },
     {
       title: 'Smart Composter',
       subtitle: 'Design Engineer',
       description:
-        'Enabled compost monitoring system using ESP32 for wireless telemetry and multi-sensor data acquisition (temperature, humidity). Designed firmware for periodic sampling, environmental trend analysis, and automated email reporting. Integrated low-power modes, ADC calibration, and robust enclosure-level electrical layout for long-term outdoor deployment',
-      team: ['Colton Davis', 'Nathan Amyot', 'Denise Hill', 'Cohen Jefferies', 'Genevieve Lexa', 'Patrick Ohara', 'Emma Tapia', 'Heather Taylor'],
+        'Automated sensing system that reads temperature, humidity, and compost health and emails customers recommendations biweekly.',
+      team: ['Colton Davis','Nathan Amyot', 'Denise Hill', 'Cohen Jefferies', 'Genevieve Lexa', 'Patrick Ohara', 'Emma Tapia', 'Heather Taylor'],
       diagrams: ['Website-Files/SmartComposter/Composter_Design.png'],
     },
     {
       title: 'Pulse oximeter',
       subtitle: 'Field Engineer',
       description:
-        'Custom pulse oximetry device involving stretch resistor "sensor" and high-gain analog front-end design for photoplethysmography (PPG). Programmed LabVIEW block diagram for digital filtering, peak detection and supporting UI.',
+        'Design and prototyping of pulse oximetry hardware/software: optical sensor selection, timing, signal conditioning, SpO2 algorithm prototyping, and UI.',
       team: ['Colton Davis', 'Tyler Labrecque'],
       diagrams: ['/Website-Files/Pulse-Oximeter/Pulse_Oximeter_Theoretical_Design.pdf'],
+    },
+    {
+      title: 'MyoTens — Muscle Atrophy Prevention',
+      subtitle: 'Engineer',
+      description:
+        'Using analog front-end and digital processing. I worked with a team to create a muscle stimulation device that sends small pulses through muscle surrounding injured bones to prevent atrophy.',
+      team: ['Colton Davis', 'Anne Harrison','Tyler Labrecque', 'Zaki Amish'],
+      diagrams: ['/website-files/MyoTens/Theoretical_Design_Presentation.pdf'], // e.g. ['/images/myotens-diagram.png']
+    },
+    {
+      title: 'Mouth-controlled PC mouse',
+      subtitle: 'Engineer',
+      description:
+        'Assistive technology translating oral movements into cursor control and clicks.',
+      team: ['Colton Davis', 'Tyler Labrecque'],
+      diagrams: [],
     },
   ];
 
@@ -121,7 +120,7 @@ export default function App() {
     <div className="min-h-screen bg-gradient-to-b from-gray-100 to-gray-200 flex flex-col items-center text-gray-800 font-sans px-4">
       <header className="text-center mt-12 mb-12 w-full max-w-3xl">
         <h1 className="text-5xl font-extrabold mb-2 tracking-tight">
-          <span style={{ color: '#8C1D40' }}>Colton Davis</span>
+          <span style={{ color: '#000' }}>Colton Davis</span>
         </h1>
         <h2 className="text-2xl font-semibold text-gray-600">ASU Engineering Senior</h2>
       </header>
@@ -139,13 +138,13 @@ export default function App() {
           <div className="space-y-4 text-left">
             {projects.map((p, i) => (
               <ProjectBlock
-                key={i}
-                title={p.title}
-                subtitle={p.subtitle}
-                description={p.description}
-                team={p.team}
-                diagrams={p.diagrams}
-              />
+                  key={i}
+                  title={p.title}
+                  subtitle={p.subtitle}
+                  description={p.description}
+                  team={p.team}
+                  diagrams={p.diagrams}
+                />
             ))}
           </div>
         </section>
@@ -155,12 +154,12 @@ export default function App() {
           <p className="text-gray-700 text-lg">
             Interested in collaboration or learning more?
             <br />
-            <a href="mailto:jcoltondavis@gmail.com" className="font-semibold hover:underline" style={{ color: '#8C1D40' }}>
+            <a href="mailto:jcoltondavis@gmail.com" className="font-semibold hover:underline" style={{ color: '#000' }}>
               jcoltondavis@gmail.com
             </a>
             <br />
             Call or text @{' '}
-            <a href="tel:928-243-4069" className="font-semibold hover:underline" style={{ color: '#8C1D40' }}>
+            <a href="tel:928-243-4069" className="font-semibold hover:underline" style={{ color: '#000' }}>
               928-243-4069
             </a>
           </p>

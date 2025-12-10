@@ -36,3 +36,34 @@
     transform: rotate(360deg);
   }
 }
+/* ----- override site accent color to black ----- */
+:root {
+  --site-primary: #000;
+}
+
+/* Force primary elements to use black across the app */
+summary,
+details summary,
+a,
+h1, h2, h3, h4, h5, h6,
+.summary-text,
+.text-primary-override,
+.text-black {
+  color: var(--site-primary) !important;
+}
+
+/* Ensure links are readable and not overridden */
+a {
+  color: var(--site-primary) !important;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
+
+/* If Tailwind CDN injected color variables, make any element with `text-...` classes inherit our primary */
+[class*="text-"] {
+  color: inherit !important;
+}
