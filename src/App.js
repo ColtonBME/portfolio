@@ -7,8 +7,7 @@ function ProjectBlock({ title, subtitle, description, team = [], clinicalMentors
   return (
     <details className="group bg-gray-50 rounded-xl p-4 border border-gray-100">
       <summary
-        className="flex items-center justify-between cursor-pointer list-none text-lg font-semibold"
-        style={{ color: '#8C1D40' }}
+        className="flex items-center justify-between cursor-pointer list-none text-lg font-semibold text-black"
       >
         <div>
           <div>{title}</div>
@@ -32,7 +31,7 @@ function ProjectBlock({ title, subtitle, description, team = [], clinicalMentors
           </ul>
         </div>
 
-        {/* Clinical mentors (new) */}
+        {/* Clinical mentors */}
         {clinicalMentors && clinicalMentors.length > 0 && (
           <div>
             <h4 className="font-semibold mb-2">Clinical mentors</h4>
@@ -65,8 +64,7 @@ function ProjectBlock({ title, subtitle, description, team = [], clinicalMentors
                     href={u}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-sm underline"
-                    style={{ color: '#8C1D40' }}
+                    className="text-sm underline text-black"
                   >
                     {u.split('/').pop().replace(/\.[^/.]+$/, '')}
                   </a>
@@ -94,7 +92,6 @@ export default function App() {
         'Joseph Rodriguez',
         'Colin Stafford'
       ],
-
       clinicalMentors: [
         'Creighton School of Medicine',
         'Nidhi Ramesh',
@@ -106,7 +103,7 @@ export default function App() {
       title: 'Mouth-controlled PC mouse',
       subtitle: 'Engineer',
       description:
-        'Designed an embedded assistive-tech device converting oral gestures into mouse inputs. Developed custom sensor interface circuitry for pressure and motion detection, displayed waveform charts and data for real-time signal analysis, and implemented filtering to ensure stable cursor control. Focused on low-latency processing, device ergonomics, and effective communication. The software was created in LabVIEW',
+        'Designed an embedded assistive-tech device converting oral gestures into mouse inputs. Developed custom sensor interface circuitry, real-time filtering, and LabVIEW software UI.',
       team: ['Colton Davis', 'Tyler Labrecque'],
       diagrams: ['website-files/pcmouse/designhistory.pdf','website-files/pcmouse/labview.png'],
     },
@@ -114,15 +111,15 @@ export default function App() {
       title: 'MyoTens — Muscle Atrophy Prevention',
       subtitle: 'Engineer',
       description:
-        'Developed a neuromuscular stimulation system integrating an ESP 32 controlled Tens Unit to integrate, safety regulated pulse generation, and digital waveform analysis. Designed a circuit for controlled current delivery. Designed filtering, feedback sensing, and firmware to produce safe, precise stimulation.',
+        'Developed a neuromuscular stimulation system integrating ESP32-controlled TENS circuitry, waveform generation, and safe current delivery.',
       team: ['Colton Davis', 'Anne Harrison', 'Tyler Labrecque', 'Zaki Amish'],
-      diagrams: ['/website-files/myotens/theory.png', 'website-files/myotens/code.png', 'website-files/myotens/circuit.png'],
+      diagrams: ['website-files/myotens/theory.png', 'website-files/myotens/code.png', 'website-files/myotens/circuit.png'],
     },
     {
       title: 'Tesla Valve Integrated Catheter System',
       subtitle: 'Design Engineer',
       description:
-        'Novel catheter device integrating passive Tesla valve flow geometry with embedded sensing concepts for future development. Worked on early electrical subsystem architecture, including pressure/flow sensor selection, low power data acquisition, and integration pathways for microcontroller based monitoring to support CAUTI-reduction strategies.',
+        'Novel catheter system integrating Tesla valve flow geometry with early-stage embedded sensing for future CAUTI-reduction instrumentation.',
       team: ['Colton Davis', 'Nathan Amyot', 'Cohen Jefferies', 'Joseph Rodriguez', 'Colin Stafford'],
       diagrams: ['website-files/teslavalve/presentation.pdf','website-files/teslavalve/tesla.png'],
     },
@@ -130,7 +127,7 @@ export default function App() {
       title: 'Smart Pill Dispenser',
       subtitle: 'Design Engineer',
       description:
-        'Embedded system built with Arduino for automated medication dispensing. Responsible for electrical design, sensor integration (IR/optical confirmation), motor/servo control, and low power firmware. I implemented real-time event driven logic.',
+        'Arduino-based automated medication system with IR sensing, servo actuation, and real-time logic.',
       team: ['Colton Davis', 'Tyler Labrecque', 'Eric Shoenling', 'Hannah Yang'],
       diagrams: ['website-files/smart-pills/threed.png', 'website-files/smart-pills/circuit.png'],
     },
@@ -138,7 +135,7 @@ export default function App() {
       title: 'Smart Composter',
       subtitle: 'Design Engineer',
       description:
-        'I designed a compost monitoring system using ESP32 for wireless telemetry and multi-sensor data acquisition (temperature, humidity). Designed firmware for periodic sampling, environmental trend analysis, and automated email reporting. Integrated low-power modes, ADC calibration, and robust enclosure-level electrical layout for long-term outdoor deployment.',
+        'ESP32-based multi-sensor telemetry system with automated email reporting, ADC calibration, and low-power firmware.',
       team: [
         'Colton Davis',
         'Nathan Amyot',
@@ -155,7 +152,7 @@ export default function App() {
       title: 'Pulse oximeter',
       subtitle: 'Field Engineer',
       description:
-        'Custom pulse oximetry device involving stretch resistor "sensing" using a voltage divider and the output voltage of the stretch sensor, along with a high gain analog front end design. Programmed LabVIEW block diagram and front panel consisting of digital filtering, peak detection, and a simple display/UI.',
+        'Custom stretch-sensor pulse oximeter using an analog front-end, digital filtering, peak detection, and LabVIEW UI.',
       team: ['Colton Davis', 'Tyler Labrecque'],
       diagrams: ['website-files/pulse-oximeter/pulseox.pdf', 'website-files/pulse-oximeter/blockdiagram.png'],
     },
@@ -163,20 +160,35 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-100 to-gray-200 flex flex-col items-center text-gray-800 font-sans px-4">
-      <header className="text-center mt-12 mb-12 w-full max-w-3xl">
+      <header className="text-center mt-12 mb-6 w-full max-w-3xl">
         <h1 className="text-5xl font-extrabold mb-2 tracking-tight">
-          <span style={{ color: '#000000ff' }}>Colton Davis</span>
+          <span className="text-black">Colton Davis</span>
         </h1>
         <h2 className="text-2xl font-semibold text-gray-600">ASU Engineering Senior</h2>
       </header>
 
-      <main className="w-full max-w-3xl px-6 flex flex-col items-center gap-8">
-        <section className="text-center">
-          <p className="text-lg leading-relaxed text-gray-900">
-            Here is my portfolio that I created entirely with JavaScript!
+      <main className="w-full max-w-3xl px-6 flex flex-col items-center gap-10">
+        {/* ⭐ ABOUT SECTION (moved inside main so it matches Featured Projects size) */}
+        <section className="bg-white p-8 rounded-3xl shadow-lg w-full text-center">
+          <h3 className="text-3xl font-bold mb-3 text-gray-800 border-b border-gray-200 pb-3">
+            👋 About Me
+          </h3>
+          <p className="text-gray-700 text-lg leading-relaxed max-w-2xl mx-auto">
+            Hello, my name is Colton Davis and I’m a Biomedical Engineering senior with an emphasis on electrical engineering
+            and embedded systems. My work spans sensor integration, signal processing,
+            PCB-level design, and microcontroller-based systems including ESP32, Arduino,
+            and LabVIEW environments.
+            <br /><br />
+            I’ve engineered assistive-tech devices, medical sensing platforms,
+            neuromuscular stimulation systems, and early-stage medical device concepts
+            integrating real-time data acquisition and low-power architectures.
+            <br /><br />
+            I’m actively seeking engineering roles in embedded systems, R&D,
+            medical devices, avionics, and high-reliability system development.
           </p>
         </section>
 
+        {/* Featured Projects (same card class and width as About) */}
         <section className="bg-white p-8 rounded-3xl shadow-lg w-full text-center">
           <h3 className="text-3xl font-bold mb-3 text-gray-800 border-b border-gray-200 pb-3">💡 Featured Projects</h3>
 
@@ -195,20 +207,29 @@ export default function App() {
           </div>
         </section>
 
+        {/* Contact */}
         <section className="bg-white p-8 rounded-3xl shadow-lg w-full text-center">
           <h3 className="text-3xl font-bold mb-4 text-gray-800 border-b border-gray-200 pb-3">📫 Contact Info</h3>
           <p className="text-gray-700 text-lg">
-            Interested in collaboration or learning more?
-            <br />
-            <a href="mailto:jcoltondavis@gmail.com" className="font-semibold hover:underline" style={{ color: '#8C1D40' }}>
+            <a href="mailto:jcoltondavis@gmail.com" className="font-semibold hover:underline text-black">
               jcoltondavis@gmail.com
             </a>
             <br />
-            Call or text @{' '}
-            <a href="tel:928-243-4069" className="font-semibold hover:underline" style={{ color: '#8C1D40' }}>
+            <a href="tel:928-243-4069" className="font-semibold hover:underline text-black">
               928-243-4069
             </a>
           </p>
+
+          <div className="mt-4">
+            <a
+              href='website-files/colton-davis-resume.pdf'
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-black underline"
+            >
+              View resume
+            </a>
+          </div>
         </section>
       </main>
 
